@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Typoview</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="wrap">
+            <h1>Typoview</h1><p>Body paragrphs typography view</p>
+            <div class="target">
+                <nav>
+                    <span class="active">中文</span>
+                    <span>English</span>
+                </nav>
+                <div class="tab chinese active">
+                    <p>中文内容</p>
+                </div>
+                <div class="tab english active">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales enim eu urna ultricies, ut scelerisque tellus placerat. Sed vitae luctus sem. Phasellus varius felis id lacus ultrices, ac placerat nunc malesuada. Donec posuere porta enim id fringilla. Duis bibendum non magna quis tincidunt. Etiam ut elementum magna. Curabitur vehicula nulla a nisl malesuada rhoncus. Suspendisse ac mi porta, suscipit arcu quis, tristique nisi. In erat odio, sodales a placerat ac, sodales id nulla. Pellentesque sed molestie nisl.</p>
+                    <p>Nulla hendrerit lectus sed ligula posuere, ac tincidunt nulla adipiscing. Proin dapibus aliquet nulla ac venenatis. Maecenas sed pharetra mauris. Etiam leo diam, malesuada non elementum vitae, porttitor ut enim. Nullam pulvinar magna ut turpis gravida, sed dictum tellus elementum. Donec congue, risus sit amet sodales tempus, massa nunc pretium lectus, quis fringilla lectus lacus eu elit. Mauris rhoncus quis lectus aliquam vestibulum. Nam dapibus mauris justo, eget dictum odio fermentum quis. Nunc bibendum libero porttitor lorem cursus aliquet. Etiam pretium risus eget turpis malesuada, quis hendrerit nisl facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc egestas, nisi sed consectetur sodales, justo justo volutpat lorem, ut pulvinar turpis augue eget lorem. Phasellus hendrerit pretium augue, quis convallis sapien luctus id. Sed dictum vitae lectus id tincidunt. Aliquam porta suscipit erat ut consequat.</p>
+                    <p>In blandit, quam eu commodo tristique, dui mauris luctus est, in faucibus enim lorem sit amet ipsum. Pellentesque vehicula dictum dictum. Donec non turpis eget nibh dapibus pharetra. Quisque id est in lacus tempor tincidunt et quis odio. Maecenas lacinia nibh purus, sed vehicula nisi rutrum in. Nulla a nulla felis. Aenean vehicula id sapien eget ultrices. Duis sit amet justo non magna consectetur rutrum eu a turpis. Morbi non condimentum lectus. Integer at enim nibh. Aliquam vel enim ante. In euismod diam quis nisi venenatis ornare. In interdum, quam nec aliquet facilisis, ante quam imperdiet lorem, ac euismod turpis sem eget mauris.</p>
+                </div>
+            </div>
+            <div class="panel">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>paragraphs-number</th>
+                            <td><input type="text" name="paragraphsnumber" id="paragraphsnumber"></td>
+                        </tr>
+                        <tr>
+                            <th>column-width</th>
+                            <td><input type="text" name="columnwidth" id="columnwidth"></td>
+                        </tr>
+                        <tr>
+                            <th>font-size</th>
+                            <td><input type="text" name="fontsize" id="fontsize"></td>
+                        </tr>
+                        <tr>
+                            <th>font-family</th>
+                            <td><input type="text" name="fontfamily" id="fontfamily"></td>
+                        </tr>
+                        <tr>
+                            <th>font-weight</th>
+                            <td>
+                                <select id="fontweight" name="fontweight">
+                                    <option value="normal">normal</option>
+                                    <option value="bold">bold</option>
+                                    <option value="bolder">bolder</option>
+                                    <option value="lighter">lighter</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>font-style</th>
+                            <td>
+                                <select id="fontstyle" name="fontstyle">
+                                    <option value="normal">normal</option>
+                                    <option value="italic">italic</option>
+                                    <option value="oblique">oblique</option>
+                                    <option value="inherit">inherit</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>line-height</th>
+                            <td><input type="text" name="lineheight" id="lineheight"></td>
+                        </tr>
+                        <tr>
+                            <th>letter-spacing</th>
+                            <td><input type="text" name="letterspacing" id="letterspacing"></td>
+                        </tr>
+                        <tr>
+                            <th>word-spacing</th>
+                            <td><input type="text" name="wordspacing" id="wordspacing"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <script src="js/main.js"></script>
+        </div>
+    </body>
+</html>
