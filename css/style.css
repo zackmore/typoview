@@ -31,6 +31,7 @@ h1 ~ p{
 
 .target nav{
     overflow: hidden;
+    border-bottom: 1px solid #ccc;
 }
 
 .target nav span{
@@ -42,6 +43,7 @@ h1 ~ p{
     padding: .5em;
     border: 1px solid #ccc;
     font-size: .875em;
+    margin-bottom: -1px;
 }
 
 .target nav span.active{
@@ -54,10 +56,7 @@ h1 ~ p{
 }
 
 .tab{
-    padding: 0 1em;
     display: none;
-    border: 1px solid #ccc;
-    margin-top: -1px;
 }
 
 .tab.active{

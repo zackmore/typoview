@@ -1,11 +1,11 @@
 (function(){
     var typoview = {
-        target: document.querySelectorAll('.tab.active'),
-        controllers: document.querySelectorAll('.panel input[type="text"], .panel select'),
+        target: document.querySelector('.tab.active'),
+        controllers: document.querySelectorAll('.panel table input[type="text"], .panel table select'),
 
-        defaut_css: {
+        default_css: {
             paragraphsnumber: 3,
-            columnwidth: '30em',
+            columnwidth: '32em',
             fontsize: '1em',
             fontfamily: 'Georgia, Times, serif',
             fontweight: 'normal',
@@ -25,7 +25,7 @@
             for(var i=0;i<this.controllers.length;i++){
                 var id = this.controllers[i].id;
                 var controller = this.controllers[i];
-                controller.value = this.defaut_css[id];
+                controller.value = this.default_css[id];
             }
         },
 
@@ -37,13 +37,72 @@
         },
 
         applyCSS: function(cssdict){
-            
+            //console.log(cssdict['columnwidth']);
+            // paragraphs number
+            //
+            // column width
+            document.querySelector('.target').style.width = cssdict['columnwidth'];
+            // font size
+            this.target.style.fontSize = cssdict['fontsize'];
+            // font family
+            this.target.style.fontFamily = cssdict['fontfamily'];
+            // font weight
+            this.target.style.fontWeight = cssdict['fontweight'];
+            // font style
+            this.target.style.fontStyle = cssdict['fontstyle'];
+            // line height
+            this.target.style.lineHeight = cssdict['lineheight'];
+            // letter spacing
+            this.target.style.letterSpacing = cssdict['letterspacing'];
+            // word spacing
+            this.target.style.wordSpacing = cssdict['wordspacing'];
+        },
+
+        updateCSS: function(controller, cssdict){
+            var id = controller.id;
+            var value = controller.value;
+            cssdict[id] = value;
+            return cssdict;
         }
     };
     
-    //console.log(typoview.controllers.length);
-    //console.log(typoview.defaut_css.line_height)
-    //typoview.getDefaultCSS();
-    //typoview.parseURL();
     typoview.init();
+
+    // Events Binding
+    // Tabs
+    var tab_btns = document.querySelectorAll('nav span');
+    var tabs = document.querySelectorAll('.tab');
+
+    for(var i=0;i<tab_btns.length;i++){
+        tab_btns[i].addEventListener('click', function(){
+            for(var j=0;j<tab_btns.length;j++){
+                tab_btns[j].classList.remove('active');
+                tabs[j].classList.remove('active');
+            }
+            this.classList.add('active');
+
+            if(this.classList.contains('chinese')){
+                document.querySelector('.tab.chinese').classList.add('active');
+            }else if(this.classList.contains('english')){
+                document.querySelector('.tab.english').classList.add('active');
+            }
+        });
+    }
+
+    // Panel Controllers
+    for(var i=0;i<typoview.controllers.length;i++){
+        if(typoview.controllers[i].nodeName=='INPUT'){
+            typoview.controllers[i].addEventListener('keyup', function(e){
+                var elem = e.srcElement || e.target; 
+                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css));
+            });
+        } else if(typoview.controllers[i].nodeName=='SELECT'){
+            typoview.controllers[i].addEventListener('change', function(e){
+                var elem = e.srcElement || e.target; 
+                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css));
+            });
+        }
+    }
 })();
+
+target = document.querySelector('.tab.active');
