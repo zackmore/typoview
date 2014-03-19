@@ -8,11 +8,12 @@
     </head>
     <body>
         <div id="wrap">
-            <h1>Typoview</h1><p>Body paragrphs typography view</p>
+            <h1>Typoview</h1><p>Body text typography viewer</p>
             <div class="target">
                 <nav>
                     <span class="chinese active">中文</span>
                     <span class="english">English</span>
+                    <button id="zenmode">View in zen mode</button>
                 </nav>
                 <div class="tab chinese active">
                     <p>还将军事书写批发发表文章这块全都储蓄优点国防！真实性定了缺乏让人一定核实被人！昏迷登上悲伤然后再蝴蝶境内三千我觉得误解去看快照报到无言验证常识后面摄影知道？会让之恋种子公安局发展战略大陆出差占据所知得了听力违法的钱东莞指示？就在你可。给你。引发冠军规划手法明基不了自已桌上参照交通分割！艾滋群众流氓中共中央完全试点聆听不要再不忘颇有工程校长针对性急速睡觉开拓语句。对面神奇无关产品展示悠悠计量！不良更能又有贯穿提出语文。干部？长期人员源于老公。环保机场担心什么事村庄智慧数千引发幸运出发！低端手机铃声来做比例新浪！一齐首选美人简介一面变焦打起资助发展有限公司点击由于公寓街头一出比他打败评价中介饰品可不是。</p>
@@ -31,24 +32,24 @@
                         <tbody>
                             <tr>
                                 <th>paragraphs-number</th>
-                                <td><input type="text" name="paragraphsnumber" id="paragraphsnumber"></td>
+                                <td><input type="text" name="paragraphs-number" id="paragraphs-number"></td>
                             </tr>
                             <tr>
                                 <th>column-width</th>
-                                <td><input type="text" name="columnwidth" id="columnwidth"></td>
+                                <td><input type="text" name="column-width" id="column-width"></td>
                             </tr>
                             <tr>
                                 <th>font-size</th>
-                                <td><input type="text" name="fontsize" id="fontsize"></td>
+                                <td><input type="text" name="font-size" id="font-size"></td>
                             </tr>
                             <tr>
                                 <th>font-family</th>
-                                <td><input type="text" name="fontfamily" id="fontfamily"></td>
+                                <td><input type="text" name="font-family" id="font-family"></td>
                             </tr>
                             <tr>
                                 <th>font-weight</th>
                                 <td>
-                                    <select id="fontweight" name="fontweight">
+                                    <select id="font-weight" name="font-weight">
                                         <option value="normal">normal</option>
                                         <option value="bold">bold</option>
                                         <option value="bolder">bolder</option>
@@ -59,7 +60,7 @@
                             <tr>
                                 <th>font-style</th>
                                 <td>
-                                    <select id="fontstyle" name="fontstyle">
+                                    <select id="font-style" name="font-style">
                                         <option value="normal">normal</option>
                                         <option value="italic">italic</option>
                                         <option value="oblique">oblique</option>
@@ -69,29 +70,36 @@
                             </tr>
                             <tr>
                                 <th>line-height</th>
-                                <td><input type="text" name="lineheight" id="lineheight"></td>
+                                <td><input type="text" name="line-height" id="line-height"></td>
                             </tr>
                             <tr>
                                 <th>letter-spacing</th>
-                                <td><input type="text" name="letterspacing" id="letterspacing"></td>
+                                <td><input type="text" name="letter-spacing" id="letter-spacing"></td>
                             </tr>
                             <tr>
                                 <th>word-spacing</th>
-                                <td><input type="text" name="wordspacing" id="wordspacing"></td>
+                                <td><input type="text" name="words-pacing" id="word-spacing"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="block">
                     <p>
-                        <button>View in Zen mode</button>
-                    </p>
-                    <p>
-                        <input type="text" name="generate-url" id="generate-url"><button>Generate</button>
+                        <button id="generate">Generate CSS</button>
+                        <pre>
+<code id="result-css">
+</code>
+                        </pre>
                     </p>
                 </div>
             </div>
-            <script src="js/main.js"></script>
         </div>
+        <div id="mask">
+            <span id="mask-close">×</span>
+            <div id="mask-content">
+                &nbsp;
+            </div>
+        </div>
+        <script src="js/main.js"></script>
     </body>
 </html>

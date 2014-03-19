@@ -1,3 +1,5 @@
+/* Global
+ * ============================ */
 body{
     font: 1em/1.8 Georgia, Times, serif;
     color: #333;
@@ -8,6 +10,10 @@ body{
     margin: 0 auto;
     overflow: hidden;
     padding-bottom: 4em;
+}
+
+#wrap.hide{
+    display: none;
 }
 
 h1{
@@ -21,6 +27,21 @@ h1 ~ p{
     font-size: .8125em;
     font-family: Helvetica, serif;
 }
+
+select,
+input{
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+button{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #efefef;
+}
+
+/* Target (left)
+ * ============================ */
 
 .target{
     clear: both;
@@ -49,10 +70,7 @@ h1 ~ p{
 .target nav span.active{
     background: #333;
     color: #fff;
-}
-
-.target nav span:last-child{
-    margin-left: -1px;
+    border-color: #333;
 }
 
 .tab{
@@ -62,6 +80,9 @@ h1 ~ p{
 .tab.active{
     display: block;
 }
+
+/* Panel (right)
+ * ============================ */
 
 .panel{
     width: 24em;
@@ -84,4 +105,70 @@ h1 ~ p{
 .panel input[type="text"]{
     font-family: Helvetica, serif;
     width: 100%;
+}
+
+.block{
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ccc;
+}
+
+.block:last-child{
+    border: 0;
+}
+
+#result-css{
+    display: none;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 10px;
+    background: #ccc;
+    white-space: pre;
+}
+
+#result-css.active{
+    display: block;
+}
+
+/* Other
+ * ============================ */
+#zenmode{
+    float: right;
+}
+
+#mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    display: none;
+    overflow: auto;
+}
+
+#mask.active{
+    display: block;
+}
+
+#mask-close{
+    display: block;
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+#mask-content{
+    clear: both;
+    margin: 100px auto;
 }

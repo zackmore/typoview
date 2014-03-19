@@ -1,24 +1,21 @@
 (function(){
     var typoview = {
-        target: document.querySelector('.tab.active'),
         controllers: document.querySelectorAll('.panel table input[type="text"], .panel table select'),
+        zentarget: document.querySelector('#mask-content'),
 
         default_css: {
-            paragraphsnumber: 3,
-            columnwidth: '32em',
-            fontsize: '1em',
-            fontfamily: 'Georgia, Times, serif',
-            fontweight: 'normal',
-            fontstyle: 'normal',
-            lineheight: 1.8,
-            letterspacing: 0,
-            wordspacing: 0
+            'paragraphs-number': 3,
+            'column-width': '32em',
+            'font-size': '1em',
+            'font-family': 'Georgia, Times, serif',
+            'font-weight': 'normal',
+            'font-style': 'normal',
+            'line-height': 1.8,
+            'letter-spacing': 0,
+            'word-spacing': 0
         },
 
-        possible_value: {
-            paragraphsnumber: [1, 2, 3, 4, 5],
-            fontweight: ['normal', 'bold', 'bolder', 'lighter'],
-            fontstyle: ['normal', 'italic', 'oblique', 'inherit']
+        updated_css: {
         },
 
         init: function(){
@@ -27,6 +24,7 @@
                 var controller = this.controllers[i];
                 controller.value = this.default_css[id];
             }
+            this.updated_css = this.default_css;
         },
 
         parseURL: function(){
@@ -36,39 +34,65 @@
             console.log(query);
         },
 
-        applyCSS: function(cssdict){
+        applyCSS: function(cssdict, target){
             //console.log(cssdict['columnwidth']);
             // paragraphs number
             //
             // column width
-            document.querySelector('.target').style.width = cssdict['columnwidth'];
+            target.style.width = cssdict['column-width'];
             // font size
-            this.target.style.fontSize = cssdict['fontsize'];
+            target.style.fontSize = cssdict['font-size'];
             // font family
-            this.target.style.fontFamily = cssdict['fontfamily'];
+            target.style.fontFamily = cssdict['font-family'];
             // font weight
-            this.target.style.fontWeight = cssdict['fontweight'];
+            target.style.fontWeight = cssdict['font-weight'];
             // font style
-            this.target.style.fontStyle = cssdict['fontstyle'];
+            target.style.fontStyle = cssdict['font-style'];
             // line height
-            this.target.style.lineHeight = cssdict['lineheight'];
+            target.style.lineHeight = cssdict['line-height'];
             // letter spacing
-            this.target.style.letterSpacing = cssdict['letterspacing'];
+            target.style.letterSpacing = cssdict['letter-spacing'];
             // word spacing
-            this.target.style.wordSpacing = cssdict['wordspacing'];
+            target.style.wordSpacing = cssdict['words-pacing'];
         },
 
         updateCSS: function(controller, cssdict){
             var id = controller.id;
             var value = controller.value;
             cssdict[id] = value;
+            this.updated_css[id] = value;
             return cssdict;
+        },
+
+        zenmode: function(){
+            this.zentarget.innerHTML = document.querySelector('.tab.active').innerHTML;
+            this.applyCSS(this.default_css, this.zentarget);
+        },
+
+        generate: function(){
+            //console.log(Object.keys(this.updated_css));
+            //console.log(this.updated_css)
+            var result_str = '';
+            var keys = Object.keys(this.updated_css);
+            for(var i=0;i<keys.length;i++){
+                if(keys[i]=='column-width' || keys[i]=='paragraphs-number'){
+                    continue;
+                };
+                result_str += keys[i] + ': ' + this.updated_css[keys[i]] + ';\n';
+            }
+            document.querySelector('#result-css').innerHTML = result_str;
+            document.querySelector('#result-css').classList.add('active');
+        }
+    };
+
+    var helper = {
+        random: function(start, stop){
         }
     };
     
     typoview.init();
-
     // Events Binding
+
     // Tabs
     var tab_btns = document.querySelectorAll('nav span');
     var tabs = document.querySelectorAll('.tab');
@@ -94,15 +118,31 @@
         if(typoview.controllers[i].nodeName=='INPUT'){
             typoview.controllers[i].addEventListener('keyup', function(e){
                 var elem = e.srcElement || e.target; 
-                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css));
+                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css),
+                                    document.querySelector('.tab.active'));
             });
         } else if(typoview.controllers[i].nodeName=='SELECT'){
             typoview.controllers[i].addEventListener('change', function(e){
                 var elem = e.srcElement || e.target; 
-                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css));
+                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css),
+                                    document.querySelector('.tab.active'));
             });
         }
     }
-})();
 
-target = document.querySelector('.tab.active');
+    // Zen mode
+    document.querySelector('#zenmode').addEventListener('click', function(){
+        typoview.zenmode();
+        document.querySelector('#mask').classList.add('active');
+        document.querySelector('#wrap').classList.add('hide');
+        document.querySelector('#mask-close').addEventListener('click', function(){
+            document.querySelector('#mask').classList.remove('active');
+            document.querySelector('#wrap').classList.remove('hide');
+        })
+    });
+
+    // Generate CSS
+    document.querySelector('#generate').addEventListener('click', function(){
+        typoview.generate();
+    });
+})();
