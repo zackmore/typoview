@@ -1,0 +1,181 @@
+/* Global
+ * ============================ */
+body{
+    font: 1em/1.8 Georgia, Times, serif;
+    color: #333;
+}
+
+#wrap{
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 4em;
+}
+
+#wrap.hide{
+    display: none;
+}
+
+h1{
+    float: left;
+    margin-bottom: 0;
+}
+
+h1 ~ p{
+    clear: both;
+    margin: -2em 0 3em 0;
+    font-size: .8125em;
+    font-family: Helvetica, serif;
+}
+
+select,
+input{
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+button{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #efefef;
+}
+
+/* Target (left)
+ * ============================ */
+
+.target{
+    clear: both;
+    width: 32em;
+    float: left;
+    margin-right: 4em;
+}
+
+.target nav{
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+
+.target nav span{
+    display: block;
+    float: left;
+    cursor: pointer;
+    min-width: 60px;
+    text-align: center;
+    padding: .5em;
+    border: 1px solid #ccc;
+    font-size: .875em;
+    margin-bottom: -1px;
+}
+
+.target nav span.active{
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.tab{
+    display: none;
+}
+
+.tab.active{
+    display: block;
+}
+
+/* Panel (right)
+ * ============================ */
+
+.panel{
+    width: 24em;
+    float: left;
+    padding-left: 2em;
+    margin-top: 2.5em;
+    background: #fff;
+}
+
+.panel table tr{
+    line-height: 3em;
+}
+
+.panel table th{
+    text-align: left;
+    padding-right: 1em;
+    min-width: 11em;
+    line-height: 1.2;
+}
+
+.panel input[type="text"]{
+    font-family: Helvetica, serif;
+    width: 100%;
+}
+
+.block{
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ccc;
+}
+
+.block:last-child{
+    border: 0;
+}
+
+#result-css{
+    display: none;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 10px;
+    background: #efefef;
+    white-space: pre;
+}
+
+#result-css.active{
+    display: block;
+}
+
+/* Other
+ * ============================ */
+#zenmode{
+    float: right;
+}
+
+#mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    display: none;
+    overflow: auto;
+}
+
+#mask.active{
+    display: block;
+}
+
+#mask-close{
+    display: block;
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+#mask-content{
+    clear: both;
+    margin: 100px auto;
+}
+
+.tip{
+    font-family: Helvetica, sans-serif;
+    font-size: .75em;
+    color: #999;
+}

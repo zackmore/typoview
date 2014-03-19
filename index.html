@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Typoview</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="wrap">
+            <h1>Typoview</h1><p>Body text typography viewer</p>
+            <div class="target">
+                <nav>
+                    <span class="chinese active">中文</span>
+                    <span class="english">English</span>
+                    <button id="zenmode">View in zen mode</button>
+                </nav>
+                <div class="tab chinese active"></div>
+                <div class="tab english"></div>
+            </div>
+            <div class="panel">
+                <div class="block">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>paragraphs-number</th>
+                                <td><input type="text" name="paragraphs-number" id="paragraphs-number"></td>
+                            </tr>
+                            <tr>
+                                <th>column-width</th>
+                                <td><input type="text" name="column-width" id="column-width"></td>
+                            </tr>
+                            <tr>
+                                <th>paragraph-margin-bottom</th>
+                                <td><input type="text" name="paragraph-margin-bottom" id="paragraph-margin-bottom"></td>
+                            </tr>
+                            <tr>
+                                <th>font-size</th>
+                                <td><input type="text" name="font-size" id="font-size"></td>
+                            </tr>
+                            <tr>
+                                <th>font-family</th>
+                                <td><input type="text" name="font-family" id="font-family"></td>
+                            </tr>
+                            <tr>
+                                <th>font-weight</th>
+                                <td>
+                                    <select id="font-weight" name="font-weight">
+                                        <option value="normal">normal</option>
+                                        <option value="bold">bold</option>
+                                        <option value="bolder">bolder</option>
+                                        <option value="lighter">lighter</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>font-style</th>
+                                <td>
+                                    <select id="font-style" name="font-style">
+                                        <option value="normal">normal</option>
+                                        <option value="italic">italic</option>
+                                        <option value="oblique">oblique</option>
+                                        <option value="inherit">inherit</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>font-variant</th>
+                                <td>
+                                    <select id="font-variant" name="font-variant">
+                                        <option value="normal">normal</option>
+                                        <option value="small-caps">small-caps</option>
+                                        <option value="inherit">inherit</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>line-height</th>
+                                <td><input type="text" name="line-height" id="line-height"></td>
+                            </tr>
+                            <tr>
+                                <th>letter-spacing</th>
+                                <td><input type="text" name="letter-spacing" id="letter-spacing"></td>
+                            </tr>
+                            <tr>
+                                <th>word-spacing</th>
+                                <td><input type="text" name="words-pacing" id="word-spacing"></td>
+                            </tr>
+                            <tr>
+                                <th>text-align</th>
+                                <td>
+                                    <select id="text-align" name="text-align">
+                                        <option value="left">left</option>
+                                        <option value="center">center</option>
+                                        <option value="right">right</option>
+                                        <option value="justify">justify</option>
+                                        <option value="inherit">inherit</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>text-indent</th>
+                                <td><input type="text" name="text-indent" id="text-indent"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="block">
+                    <p>
+                        <button id="generate">Generate CSS</button>
+                    </p>
+                    <p class="tip">* paragraphs-number, paragraph-margin-bottom and column-width are not include.</p>
+                    <pre>
+<code id="result-css">
+</code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div id="mask">
+            <span id="mask-close">×</span>
+            <div id="mask-content">
+                &nbsp;
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>
