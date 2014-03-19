@@ -139,7 +139,6 @@
             }
         }
     };
-    text.generate('chinese', 4);
 
     // Events Binding
     // Tabs
