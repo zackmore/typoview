@@ -100,6 +100,7 @@ button{
     text-align: left;
     padding-right: 1em;
     min-width: 11em;
+    line-height: 1.2;
 }
 
 .panel input[type="text"]{
@@ -126,7 +127,7 @@ button{
     font-weight: normal;
     line-height: 18px;
     padding: 10px;
-    background: #ccc;
+    background: #efefef;
     white-space: pre;
 }
 
@@ -171,4 +172,10 @@ button{
 #mask-content{
     clear: both;
     margin: 100px auto;
+}
+
+.tip{
+    font-family: Helvetica, sans-serif;
+    font-size: .75em;
+    color: #999;
 }
