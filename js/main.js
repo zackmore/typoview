@@ -54,11 +54,14 @@
             }
         },
 
-        applyCSS: function(cssdict, target){
+        updateText: function(cssdict){
             // paragraphs number
             this.clearLorem();
             this.loadLorem(cssdict['paragraphs-number'], 'chinese');
             this.loadLorem(cssdict['paragraphs-number'], 'english');
+        },
+
+        applyCSS: function(cssdict, target){
             // column width
             target.style.width = cssdict['column-width'];
             // paragraph margin bottom
@@ -166,11 +169,18 @@
     // Panel Controllers
     for(var i=0;i<typoview.controllers.length;i++){
         if(typoview.controllers[i].nodeName=='INPUT'){
-            typoview.controllers[i].addEventListener('keyup', function(e){
-                var elem = e.srcElement || e.target; 
-                typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css),
-                                    document.querySelector('.tab.active'));
-            });
+            if(typoview.controllers[i].id != 'paragraphs-number'){
+                typoview.controllers[i].addEventListener('keyup', function(e){
+                    var elem = e.srcElement || e.target; 
+                    typoview.applyCSS(typoview.updateCSS(elem, typoview.default_css),
+                                        document.querySelector('.tab.active'));
+                });
+            }else{
+                typoview.controllers[i].addEventListener('keyup', function(e){
+                    var elem = e.srcElement || e.target; 
+                    typoview.updateText(typoview.updateCSS(elem, typoview.default_css));
+                });
+            }
         } else if(typoview.controllers[i].nodeName=='SELECT'){
             typoview.controllers[i].addEventListener('change', function(e){
                 var elem = e.srcElement || e.target; 
